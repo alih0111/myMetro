@@ -1,0 +1,294 @@
+.item {
+    width: 350px;
+    height: 233px;
+    border: 6px solid #fff;
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+}
+
+.item .img {
+    transition: all 0.35s ease-in-out;
+}
+
+.item .info {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: #333333;
+    background: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.35s ease-in-out;
+}
+
+    .item .info h3 {
+        color: #fff;
+        text-align: center;
+        font-size: 17px;
+        padding: 10px;
+        background: #111111;
+        margin: 30px 0 0 0;
+        transition: all 0.35s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    .item .info a {
+        font-size: 12px;
+        position: relative;
+        color: #bbb;
+        padding: 20px 20px 20px;
+        text-align: center;
+        transition: all 0.35s linear;
+        transform: translateX(100%);
+    }
+
+.item .my-card:hover .img {
+    transform: scale(1.2);
+}
+
+.item .my-card:hover .info {
+    visibility: visible;
+    opacity: 1;
+}
+
+    .item .my-card:hover .info h3,
+    .item .my-card:hover .info a {
+        transform: translateX(0);
+    }
+
+
+
+.image0 {
+    position: relative;
+    transform: rotateY(calc(var(--mouse-x1)*1deg - 50deg)) rotateX(calc(var(--mouse-y1)*-1deg + 50deg));
+}
+
+.image1 {
+    position: relative;
+    transform: rotateY(calc(var(--mouse-x2)*1deg - 50deg)) rotateX(calc(var(--mouse-y2)*-1deg + 50deg));
+}
+
+.image2 {
+    position: relative;
+    transform: rotateY(calc(var(--mouse-x3)*1deg - 50deg)) rotateX(calc(var(--mouse-y3)*-1deg + 50deg));
+}
+
+.images:before, .images:after {
+    content: "";
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3),0px 4px 6px -2px rgba(0,0,0,0.2);
+    background-color: #f1f1f1;
+    width: 350px;
+    height: 233px;
+    top: 0;
+    position: absolute;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.images:hover:before, .images:hover:after {
+    transition: 0.25s;
+}
+
+/* Each Item Back*/
+.image0::before {
+    --translate-x: calc(var(--mouse-x1)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y1)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
+
+.image0::after {
+    --translate-x: calc(var(--mouse-x1)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y1)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
+
+.image1::before {
+    --translate-x: calc(var(--mouse-x2)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y2)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
+
+.image1::after {
+    --translate-x: calc(var(--mouse-x2)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y2)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
+
+.image2::before {
+    --translate-x: calc(var(--mouse-x3)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y3)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
+
+.image2::after {
+    --translate-x: calc(var(--mouse-x3)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y3)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
+
+.shiny {
+    position: relative;
+    overflow: hidden;
+}
+
+    .shiny::after {
+        content: "";
+        position: absolute;
+        top: calc(var(--y, 0) * 1px - 50px);
+        left: calc(var(--x, 0) * 1px - 50px);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(white, #3984ff00 80%);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .shiny:hover::after {
+        opacity: 0.3;
+    }
+
+/* The container */
+.container1 {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    height: 50px;
+    width: 260px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+    /* Hide the browser's default checkbox */
+    .container1 input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position:relative;
+    height: 25px;
+    width: 25px;
+}
+
+/* When the checkbox is checked add a background */
+.container1 input:checked ~ .checkmark_true {
+    background-color: #329E78;
+}
+.container1 input:checked ~ .checkmark_false {
+    background-color: #DD3C3A;
+}
+.container1 input:checked ~ .checkmark_wait {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container1 input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* CheckMark True*/
+.container1 .checkmark_true:after {
+    left: 10px;
+    top: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* CheckMark False*/
+.container1 .checkmark_false:after {
+    left: 9px;
+    top: 6px;
+    width: 5px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 0 0;
+    transform: rotate(45deg);   
+}
+
+.checkmark_false:before {
+    content: "";
+    position: absolute;
+    display: none;
+    transition: transform 5s;
+}
+
+.container1 .checkmark_false:before {
+    left: 10px;
+    top: 6px;
+    width: 5px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 0 0;
+    transform: rotate(140deg);
+}
+
+.container1 input:checked ~ .checkmark_false:before {
+    display: block;
+}
+
+/* CheckMark Waiting*/
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.load {
+    width: 15px;
+    height: 15px;
+    border: solid 3px white;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transition: all 0.5s ease-in;
+    animation: rotate 1s infinite linear;  
+}
+
+.scroll-control{
+    position:fixed;
+    right:20px;
+    top:50%;
+    transform:translateX(-50%);
+    z-index:100;
+}
+.scroll-control span{
+    cursor:pointer;
+    display:block;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    margin:10px 0;
+    background-color:#000;
+    opacity:0.7;
+}
+
+.fontSmaller {
+    font-size: smaller;
+}

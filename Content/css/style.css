@@ -1,0 +1,61 @@
+@font-face{
+  font-family:'yekan';
+  src:url("../fonts/yekanweb.eot");
+  src:url("../fonts/yekanweb.eot?#iefix") format("embedded-opentype"),url("../fonts/yekanweb.woff") format("woff"),url("../fonts/yekanweb.ttf") format("truetype"),url("../fonts/yekanweb.svg#web_Yekan") format("svg");
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face{
+  font-family:'numbers';
+  src:url("../fonts/yekannumbers.eot");
+  src:url("../fonts/yekannumbers.eot?#iefix") format("embedded-opentype"),url("../fonts/yekannumbers.woff") format("woff"),url("../fonts/yekannumbers.ttf") format("truetype"),url("../fonts/yekannumbers.svg#web_Yekan") format("svg");
+  font-style:normal;
+  font-weight:normal;
+}
+
+a,i,form button,.last-products article > div > div .buy-button{ outline: none;  text-decoration: none; -webkit-transition : all 0.2s linear 0s; -moz-transition : all 0.2s linear 0s; -ms-transition : all 0.2s linear 0s; -o-transition : all 0.2s linear 0s; transition : all 0.2s linear 0s}
+a:hover,a:active{text-decoration: none; color: #008DDE;outline: none;}
+a:visited,a:link{text-decoration: none;outline: none;}
+a{color: #7A7979}
+i,span,label,a{display: inline-block}
+ul{list-style: none !important; list-style-type: none !important; margin: 0; padding: 0}
+.border-radius,.comment-layer,.comment-layer header span,
+.comment-layer ul img,.comment-layer ul li,.comment-layer ul li .reply-button{ border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px;}
+a,span,label,i,p,div{font-weight: normal !important}
+
+.MyBody {
+    background: rgb(33,27,126);
+    background: linear-gradient(22deg, rgba(33,27,126,1) 0%, rgba(26,147,172,1) 53%, rgba(211,255,221,1) 85%);
+}
+
+.top-nav {
+    border-bottom: 1px solid #dfdfdf;
+    position: relative;
+}
+.top-nav .container .right-nav{
+    padding-right: 0
+}
+.top-nav .clientarea ul li{
+    float: right;
+    padding: 0;
+    border-left: 1px solid #dfdfdf
+}
+.top-nav .clientarea ul li a{
+    margin: 0 15px;
+    display: block;
+    line-height: 35px
+}
+.top-nav .clientarea ul li a label{
+    margin: 0
+}
+.top-nav .clientarea ul li a i{
+    color: #008DDE;
+    font-size: 18px;
+    position: relative;
+    margin-left: 4px;
+    top: 2px
+}
+
+.top-nav .clientarea ul li:first-child{
+    border-right:1px solid #dfdfdf;
+}

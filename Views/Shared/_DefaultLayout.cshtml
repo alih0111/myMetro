@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> مترو </title>
+    <meta charset="UTF-8">
+    <base href="">
+    <meta name="googlebot" content="index,follow">
+    <meta name="robots" content="noodp,noydir">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/font-awesome.min.css">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<body class="MyBody">
+    @*<script src="/Content/js/modernizr.js"></script>*@
+    
+    @RenderBody()
+
+    @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="/Content/js/bootstrap.min.js"></script>*@
+    @*<script src="~/Scripts/modal.js"></script>*@
+    @RenderSection("scripts", required: false);
+</body>
+</html>
