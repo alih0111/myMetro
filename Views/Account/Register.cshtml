@@ -1,41 +1,234 @@
-﻿@model Metro.Models.RegisterViewModel
+﻿@model DataLayer.ViewModels.RegisterViewModel
+
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "ثبت نام";
 }
 
-<h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<link href="~/Content/css/myCss/register-style.css" rel="stylesheet" />
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+    @*<div class="d-flex align-items-center justify-content-center" style="height:100vh">
+
+            <div class="form-horizontal d-flex flex-column justify-content-center p-5 gap-3 shadow-lg rounded-3" style="width:700px; height:600px;">
+                <h4 class="d-flex justify-content-center mt-4">فرم ثبت نام</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RePassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="ثبت نام" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+    @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+
+    <div class="container">
+        <div class="form-container sign-up-container">
+            <form action="">
+                <img src="~/Content/images/assets/behpouyan.png" style="width:90px" />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="d-flex flex-column align-items-center">
+                    <div class="form-group" style="width:290px">
+                        @Html.EditorFor(model => model.UserName, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = @Html.DisplayNameFor(m => m.UserName)
+                            }
+                        })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:290px">
+                        @Html.EditorFor(model => model.Email, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = @Html.DisplayNameFor(m => m.Email)
+                            }
+                        })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:290px">
+
+                        @Html.EditorFor(model => model.Password, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = @Html.DisplayNameFor(m => m.Password)
+                            }
+                        })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:290px">
+
+                        @Html.EditorFor(model => model.RePassword, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                placeholder = @Html.DisplayNameFor(m => m.RePassword)
+                            }
+                        })
+                        <div class="textFont12 my-1">
+                            @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="ثبت نام" class="btn btn-reg" />
+                    </div>
+                </div>
+
+                @*<input type="text" placeholder="@Html.DisplayNameFor(model => model.UserName)" required />
+                    <div class="textFont12">
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <input type="email" placeholder="@Html.DisplayNameFor(model => model.Email)" />
+                    <div class="textFont12">
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <input type="password" placeholder="@Html.DisplayNameFor(model => model.Password)" />
+                    <div class="textFont12">
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <input type="password" placeholder="@Html.DisplayNameFor(model => model.RePassword)" />
+                    <div class="textFont12">
+                        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                    </div>*@
+
+                @*<button type="submit" class="btn-reg py-2">ثبت نام</button>*@
+            </form>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        <div class="form-container sign-in-container">
+            <form action="">
+                <img src="~/Content/images/assets/behpouyan.png" style="width:90px" />
+                <input id="input1-email" type="email" placeholder="ایمیل ..." required />
+                <input id="input1-pass" type="password" placeholder="کلمه عبور ..." required minlength="6" />
+                <a href="">فراموشی کلمه عبور</a>
+                <button class="btn-login">ورود</button>
+            </form>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>خوش آمدید</h1>
+                    <p>برای دسترسی به تمام امکانات سایت ابتدا در سایت لاگین نمایید</p>
+                    <button class="ghost" id="signIn">ورود</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>خوش آمدید</h1>
+                    <p>اگر عضو سایت نیستید در کمتر از 1 دقیقه عضو سایت شوید</p>
+                    <button class="ghost" id="signUp">عضویت</button>
+                </div>
+            </div>
         </div>
     </div>
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>*@
+<script>
+    let signUp = document.querySelector("#signUp");
+    let signIn = document.querySelector("#signIn");
+    let btnLogin = document.querySelector(".btn-login");
+    let container = document.querySelector(".container");
+    let signInContainer = document.querySelector(".sign-in-container");
+    signUp.addEventListener("click", (e) => {
+        e.preventDefault();
+        container.classList.add("right-panel-active");
+        signInContainer.style.display = "none";
+    });
+    signIn.addEventListener("click", (e) => {
+        e.preventDefault();
+        container.classList.remove("right-panel-active");
+        signInContainer.style.display = "block";
+    });</script>
+<script>
+    const forms = document.querySelectorAll("form");
+    const message = {
+        valueMissing: () => "مقدار اجباری می باشد!!",
+        patternMismatch: () => "فرمت وارد شده نادرست است",
+        tooShort: (target) => `حداقل باید ${target.minLength} کاراکتر وارد شود!`,
+    };
+    const validityKeys = Object.keys(message);
+
+    forms.forEach((form) => {
+        form.addEventListener("input", (e) => {
+            let {
+                target
+            } = e;
+            const errorEl = target.parentElement.querySelectorAll("small");
+            console.log(target.parentElement);
+            errorEl.forEach((el) => el.remove());
+            target.style.border = '2px solid green'
+
+            validityKeys.forEach((key) => {
+                if (target.validity[key]) {
+                    appendError(target, key);
+                }
+            });
+        });
+    });
+
+    function appendError(target, key) {
+        const errorEl = document.createElement("small");
+        target.style.border = '2px solid red'
+        errorEl.innerText = message[key](target);
+        target.after(errorEl);
+    }</script>

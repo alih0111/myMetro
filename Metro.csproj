@@ -167,6 +167,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -200,6 +201,7 @@
     <Content Include="Content\css\bootstrap-rtl.min.css" />
     <Content Include="Content\css\bootstrap.min2.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\myCss\register-style.css" />
     <Content Include="Content\css\myCss\style.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -208,6 +210,7 @@
     <Content Include="Content\images\assets\00.jpg" />
     <Content Include="Content\images\assets\11.jpg" />
     <Content Include="Content\images\assets\22.jpg" />
+    <Content Include="Content\images\assets\behpouyan.png" />
     <Content Include="Content\js\aos.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\carousel.js" />
@@ -259,6 +262,9 @@
     <Content Include="Content\fonts\yekanweb.ttf" />
     <Content Include="Content\fonts\yekanweb.woff" />
     <Content Include="Content\js\jquery.min.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -286,18 +292,18 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\first\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\first\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\first\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\first\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\first\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\first\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\first\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\first\ResetPassword.cshtml" />
+    <Content Include="Views\Account\first\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\first\SendCode.cshtml" />
+    <Content Include="Views\Account\first\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -309,14 +315,23 @@
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\Home\About1.cshtml" />
     <Content Include="Views\Home\TestConnection.cshtml" />
+    <Content Include="Views\Account\SuccessRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{6f9054f6-9ad4-40ec-8348-e64920a3abe5}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
