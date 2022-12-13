@@ -79,8 +79,8 @@
             </div>
         </div>
         <div class="row mb-4">
-            <div class="col-lg-4 col-sm-6 col-12" data-aos="fade-down">
-                <div class="item position-relative overflow-hidden ">
+            <div class="images image3 item-fallow col-lg-4 col-sm-6 col-12">
+                <div class="item position-relative overflow-hidden " data-aos="fade-down">
                     <div class="my-card">
                         <div class="img img-fluid">
                             <img src="~/Content/images/assets/00.jpg" alt="img">
@@ -88,39 +88,39 @@
                         <div class="info">
                             <h3>سامانه سهند</h3>
                             <div class="my-5 mx-5 p-2 d-flex justify-content-center gap-3">
-                                <a href="#">تست اتصال</a>
-                                <a href="#">تست اتصال</a>
-                                <a href="#">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-12" data-aos="fade-down">
-                <div class="item position-relative overflow-hidden">
+            <div class="images image4 item-fallow col-lg-4 col-sm-6 col-12">
+                <div class="item position-relative overflow-hidden" data-aos="fade-down">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/22.jpg" alt="img"></div>
                         <div class="info">
                             <h3>سامانه ره یافت</h3>
                             <div class="my-5 mx-5 p-2 d-flex justify-content-center gap-3">
-                                <a href="#">تست اتصال</a>
-                                <a href="#">تست اتصال</a>
-                                <a href="#">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-12" data-aos="fade-down">
-                <div class="item position-relative overflow-hidden">
+            <div class="images image5 item-fallow col-lg-4 col-sm-6 col-12">
+                <div class="item position-relative overflow-hidden" data-aos="fade-down">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/11.jpg" alt="img"></div>
                         <div class="info">
                             <h3>سامانه DVR</h3>
                             <div class="my-5 mx-5 p-2 d-flex justify-content-center gap-3">
-                                <a href="#" id="btn_showModal">تست اتصال</a>
-                                <a href="#">تست اتصال</a>
-                                <a href="#">تست اتصال</a>
+                                <a href="#" id="btn_showModal" class="shiny rounded-2">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
+                                <a href="#" class="shiny rounded-2">تست اتصال</a>
                             </div>
                         </div>
                     </div>
@@ -287,11 +287,11 @@
                 yy = 30;
             }
             document.body.style.setProperty(
-                "--mouse-x1", xx
+                "--mouse-x0", xx
             );
             //document.body.style.setProperty("--mouse-x1", e.clientX - x);
             document.body.style.setProperty(
-                "--mouse-y1", yy
+                "--mouse-y0", yy
             );
         }, false);
         window.addEventListener("mousemove", (e) => {
@@ -310,10 +310,10 @@
                 yy = 30;
             }
             document.body.style.setProperty(
-                "--mouse-x2", xx
+                "--mouse-x1", xx
             );
             document.body.style.setProperty(
-                "--mouse-y2", yy
+                "--mouse-y1", yy
             );
         }, false);
         window.addEventListener("mousemove", (e) => {
@@ -332,11 +332,80 @@
                 yy = 30;
             }
             document.body.style.setProperty(
+                "--mouse-x2",
+                xx
+            );
+            document.body.style.setProperty(
+                "--mouse-y2", yy
+            );
+        }, false);
+        window.addEventListener("mousemove", (e) => {
+            let xx = (e.clientX / document.body.offsetWidth) * 65
+            if (xx > 70) {
+                xx = 70;
+            }
+            if (xx < 30) {
+                xx = 30;
+            }
+            let yy = (e.clientY / document.body.offsetHeight) * 140
+            if (yy > 70) {
+                yy = 70;
+            }
+            if (yy < 30) {
+                yy = 30;
+            }
+            document.body.style.setProperty(
                 "--mouse-x3",
                 xx
             );
             document.body.style.setProperty(
                 "--mouse-y3", yy
+            );
+        }, false);
+        window.addEventListener("mousemove", (e) => {
+            let xx = (e.clientX / document.body.offsetWidth) * 100
+            if (xx > 70) {
+                xx = 70;
+            }
+            if (xx < 30) {
+                xx = 30;
+            }
+            let yy = (e.clientY / document.body.offsetHeight) * 140
+            if (yy > 70) {
+                yy = 70;
+            }
+            if (yy < 30) {
+                yy = 30;
+            }
+            document.body.style.setProperty(
+                "--mouse-x4",
+                xx
+            );
+            document.body.style.setProperty(
+                "--mouse-y4", yy
+            );
+        }, false);
+        window.addEventListener("mousemove", (e) => {
+            let xx = (e.clientX / document.body.offsetWidth) * 240
+            if (xx > 70) {
+                xx = 70;
+            }
+            if (xx < 30) {
+                xx = 30;
+            }
+            let yy = (e.clientY / document.body.offsetHeight) * 140
+            if (yy > 70) {
+                yy = 70;
+            }
+            if (yy < 30) {
+                yy = 30;
+            }
+            document.body.style.setProperty(
+                "--mouse-x5",
+                xx
+            );
+            document.body.style.setProperty(
+                "--mouse-y5", yy
             );
         }, false);
     </script>

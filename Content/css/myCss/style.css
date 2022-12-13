@@ -68,20 +68,32 @@
 
 .image0 {
     position: relative;
-    transform: rotateY(calc(var(--mouse-x1)*1deg - 50deg)) rotateX(calc(var(--mouse-y1)*-1deg + 50deg));
+    transform: rotateY(calc(var(--mouse-x0)*1deg - 50deg)) rotateX(calc(var(--mouse-y0)*-1deg + 50deg));
 }
 
 .image1 {
     position: relative;
-    transform: rotateY(calc(var(--mouse-x2)*1deg - 50deg)) rotateX(calc(var(--mouse-y2)*-1deg + 50deg));
+    transform: rotateY(calc(var(--mouse-x1)*1deg - 50deg)) rotateX(calc(var(--mouse-y1)*-1deg + 50deg));
 }
 
 .image2 {
     position: relative;
+    transform: rotateY(calc(var(--mouse-x2)*1deg - 50deg)) rotateX(calc(var(--mouse-y2)*-1deg + 50deg));
+}
+.image3 {
+    position: relative;
     transform: rotateY(calc(var(--mouse-x3)*1deg - 50deg)) rotateX(calc(var(--mouse-y3)*-1deg + 50deg));
 }
+.image4 {
+    position: relative;
+    transform: rotateY(calc(var(--mouse-x4)*1deg - 50deg)) rotateX(calc(var(--mouse-y4)*-1deg + 50deg));
+}
+.image5 {
+    position: relative;
+    transform: rotateY(calc(var(--mouse-x5)*1deg - 50deg)) rotateX(calc(var(--mouse-y5)*-1deg + 50deg));
+}
 
-/*.images:before, .images:after {
+.images:before, .images:after {
     content: "";
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3),0px 4px 6px -2px rgba(0,0,0,0.2);
     background-color: #f1f1f1;
@@ -91,7 +103,7 @@
     position: absolute;
     border-radius: 20px;
     z-index: -1;
-}*/
+}
 
 .images:hover:before, .images:hover:after {
     transition: 0.25s;
@@ -99,41 +111,73 @@
 
 /* Each Item Back*/
 .image0::before {
-    --translate-x: calc(var(--mouse-x1)*-1px + 50px);
-    --translate-y: calc(var(--mouse-y1)*-1px + 50px);
+    --translate-x: calc(var(--mouse-x0)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y0)*-1px + 50px);
     transform: translateX(var(--translate-x)) translateY(var(--translate-y));
 }
 
 .image0::after {
+    --translate-x: calc(var(--mouse-x0)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y0)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
+
+.image1::before {
+    --translate-x: calc(var(--mouse-x1)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y1)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
+
+.image1::after {
     --translate-x: calc(var(--mouse-x1)*-1px + 50px);
     --translate-y: calc(var(--mouse-y1)*-1px + 50px);
     transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
 }
 
-.image1::before {
-    --translate-x: calc(var(--mouse-x2)*-1px + 50px);
-    --translate-y: calc(var(--mouse-y2)*-1px + 50px);
-    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
-}
-
-.image1::after {
-    --translate-x: calc(var(--mouse-x2)*-1px + 50px);
-    --translate-y: calc(var(--mouse-y2)*-1px + 50px);
-    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
-}
-
 .image2::before {
-    --translate-x: calc(var(--mouse-x3)*-1px + 50px);
-    --translate-y: calc(var(--mouse-y3)*-1px + 50px);
+    --translate-x: calc(var(--mouse-x2)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y2)*-1px + 50px);
     transform: translateX(var(--translate-x)) translateY(var(--translate-y));
 }
 
 .image2::after {
+    --translate-x: calc(var(--mouse-x2)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y2)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
+.image3::before {
+    --translate-x: calc(var(--mouse-x3)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y3)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
+
+.image3::after {
     --translate-x: calc(var(--mouse-x3)*-1px + 50px);
     --translate-y: calc(var(--mouse-y3)*-1px + 50px);
     transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
 }
+.image4::before {
+    --translate-x: calc(var(--mouse-x4)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y4)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
 
+.image4::after {
+    --translate-x: calc(var(--mouse-x4)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y4)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
+.image5::before {
+    --translate-x: calc(var(--mouse-x5)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y5)*-1px + 50px);
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+}
+
+.image5::after {
+    --translate-x: calc(var(--mouse-x5)*-1px + 50px);
+    --translate-y: calc(var(--mouse-y5)*-1px + 50px);
+    transform: translateX(calc(var(--translate-x)/2)) translateY(calc(var(--translate-y)/2));
+}
 .shiny {
     position: relative;
     overflow: hidden;
