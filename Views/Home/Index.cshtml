@@ -4,7 +4,17 @@
 }
 
 <link href="~/Content/css/myCss/style.css" rel="stylesheet">
-
+@*<div class="top-nav">
+    <div class="container">
+        <div class="right-nav">
+            <div class="clientarea">
+                <ul>
+                    @Html.Partial("_LoggedInUser")
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>*@
 <div class="container">
     <h5 class="px-2 my-5">ادمین برترین سامانه ها</h5>
 
@@ -131,7 +141,7 @@
 
 <script>
 
-    if (window.innerWidth < 1200 || window.innerWidth > 1500) {
+    if (window.innerWidth > 1200 || window.innerWidth > 1500) {
         let cc = document.querySelectorAll(".item-fallow");
         let i = 0
         cc.forEach(() => {

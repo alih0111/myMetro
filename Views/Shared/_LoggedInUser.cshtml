@@ -1,0 +1,10 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <li><a href="#"><i class="fa fa-user"></i> <label role="button">@User.Identity.Name خوش آمدید</label> </a></li>
+    <li><a href="/Account/LogOff"><i class="fa fa-sign-out"></i> <label role="button">خروج</label> </a></li>
+}
+else
+{
+    <li><a href="/Register"><i class="fa fa-user-plus"></i> <label role="button">عضویت</label> </a></li>
+    <li><a href="/Login"><i class="fa fa-user"></i> <label role="button">ورود به سایت</label> </a></li>
+}

@@ -15,18 +15,28 @@
     <link rel="stylesheet" type="text/css" href="/Content/css/font-awesome.min.css">
     <link href="~/Content/css/style.css" rel="stylesheet" />
 
-    
 </head>
 <body class="MyBody">
     @*<script src="/Content/js/modernizr.js"></script>*@
-    
+    <div class="top-nav">
+        <div class="container">
+            <div class="right-nav">
+                <div class="clientarea">
+                    <ul>
+                        @Html.Partial("_LoggedInUser")
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @RenderBody()
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-    @RenderSection("scripts", required: false);
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>

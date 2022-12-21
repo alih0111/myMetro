@@ -1,0 +1,150 @@
+﻿@model DataLayer.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "ورود به سایت";
+}
+<link href="~/Content/css/myCss/register-style.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="d-flex align-items-center" style="height:90vh">
+        <div class="container-register">
+            <div class="form-container sign-in-container">
+        @*<button id="btnShow">click</button>*@
+                <img src="~/Content/images/assets/behpouyan.png" style="width:90px; margin-bottom:30px;margin-top:30px" />
+                <form action="">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class=" d-flex flex-column align-items-center mt-2">
+                        <div class="form-group ">
+                            @Html.EditorFor(model => model.Email, new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @class = "form-control input shadow-btn",
+                                    placeholder = @Html.DisplayNameFor(m => m.Email)
+                                }
+                            })
+                            <div class="textFont12 mb-1 float-end px-2">
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Password, new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @class = "form-control input shadow-btn",
+                                    placeholder = @Html.DisplayNameFor(m => m.Password)
+                                }
+                            })
+                            <div class="textFont12 mb-1 float-end px-2">
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group d-flex justify-content-end mt-2">
+                            <label for="RememberMe" class="label_CheckBox d-flex align-items-center gap-1">
+                                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label font14 text-gray" })
+                                @Html.EditorFor(model => model.RememberMe)
+                                @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                                <span class="checkmark checkmark_true rounded-1 shadow-btn"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group mt-4 shadow-btn">
+                            <input type="submit" id="btn_submit" value="ورود به سایت" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            @*<div class="form-container sign-in-container">
+                    <img src="~/Content/images/assets/behpouyan.png" style="width:90px;margin-top:50px" />
+                    <form action="" style="margin-top:50px">
+                        <input class="mb-3" id="input1-email" type="email" placeholder="ایمیل ..." required />
+                        <input id="input1-pass" type="password" placeholder="کلمه عبور ..." required minlength="6" />
+                        <a href="">فراموشی کلمه عبور</a>
+                        <button class="btn-login">ورود</button>
+                    </form>
+                </div>*@
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>خوش آمدید</h1>
+                        <p>برای دسترسی به تمام امکانات سایت ابتدا در سایت لاگین نمایید</p>
+                        <button class="ghost" id="signIn">ورود</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>خوش آمدید</h1>
+                        <p>اگر عضو سایت نیستید در کمتر از 1 دقیقه عضو سایت شوید</p>
+                        <button class="ghost" id="signUp">عضویت</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    let signUp = document.querySelector("#signUp");
+    let signIn = document.querySelector("#signIn");
+    let btnLogin = document.querySelector(".btn-login");
+    let container = document.querySelector(".container-register");
+    let signInContainer = document.querySelector(".sign-in-container");
+    signUp.addEventListener("click", (e) => {
+        e.preventDefault();
+        container.classList.add("right-panel-active");
+        //signInContainer.style.display = "none";
+    });
+    signIn.addEventListener("click", (e) => {
+        console.log(e);
+        e.preventDefault();
+        container.classList.remove("right-panel-active");
+        signInContainer.style.display = "block";
+    });
+</script>
+
+<script>
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach((form) => {
+        form.addEventListener("input", (e) => {
+            let {
+                target
+            } = e;
+            target.style.border = '2px solid #329E78'
+        });
+        form.addEventListener("click", () => {
+            let errorEl = document.querySelectorAll('.field-validation-error')
+            errorEl.forEach((key) => {
+                key.parentNode.parentNode.firstElementChild.style.border = '2px solid red'
+                key.parentNode.parentNode.firstElementChild.style.animation = "shake 300ms";
+            });
+        });
+    });
+</script>
+
+
+
+
+@section scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    @*<script>
+        $("#btnShow").click(function () {
+            $.ajax({
+                url: "https://reqres.in/api/users",
+                type: "POST",
+                data: {
+                    name: "paul rudd",
+                    movies: ["I Love You", "Role Models"]
+                },
+                success: function (response) {
+                    console.log(response);
+                }
+            }).done(function (result) {
+                console.log(result);
+            })
+        })
+    </script>*@
+}

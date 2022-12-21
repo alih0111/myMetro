@@ -9,7 +9,9 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="container">
+    <div class="d-flex justify-content-center align-items-center" style="height:80vh;">
+
+    <div class="container-register">
         <div class="form-container sign-up-container">
             <img src="~/Content/images/assets/behpouyan.png" style="width:90px; margin-bottom:10px;margin-top:10px" />
             <form action="">
@@ -23,7 +25,6 @@
                             {
                                 @class = "form-control input",
                                 placeholder = @Html.DisplayNameFor(m => m.UserName)
-
                             }
                         })
                         <div class="textFont12 mb-1 float-end px-2">
@@ -101,13 +102,17 @@
             </div>
         </div>
     </div>
+    </div>
 }
+
+@section scripts
+{
 
 <script>
     let signUp = document.querySelector("#signUp");
     let signIn = document.querySelector("#signIn");
     let btnLogin = document.querySelector(".btn-login");
-    let container = document.querySelector(".container");
+    let container = document.querySelector(".container-register");
     let signInContainer = document.querySelector(".sign-in-container");
     signUp.addEventListener("click", (e) => {
         e.preventDefault();
@@ -135,7 +140,9 @@
             let errorEl = document.querySelectorAll('.field-validation-error')
             errorEl.forEach((key) => {
                 key.parentNode.parentNode.firstElementChild.style.border = '2px solid red'
+                key.parentNode.parentNode.firstElementChild.style.animation="shake 300ms";
             });
         });
     });
 </script>
+}

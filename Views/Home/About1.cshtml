@@ -1,38 +1,29 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "About1";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-@*<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.scrollify.min.js"></script>*@
 <link href="~/Content/css/aos.css" rel="stylesheet" />
-@*<script src="~/Content/js/aos.js"></script>*@
 <link href="~/Content/css/myCss/style.css" rel="stylesheet">
-
 
 <!-- Items -->
 <section class="scroll s-one" data-section-name="s-one">
-    <div class="top-nav" style="padding-bottom:34px">
-        <div class="container">
-            <div class="col-md-6 col-sm-7 col-xs-7 right-nav">
-                <!-- Client Area -->
-                <div class="clientarea">
-                    <ul>
-                        <li><a href=""><i class="fa fa-user-plus"></i> <label role="button">عضویت</label> </a></li>
-                        <li><a href=""><i class="fa fa-user"></i> <label role="button">ورود به سایت</label> </a></li>
-                    </ul>
+    @*<div class="top-nav">
+            <div class="container">
+                <div class="right-nav">
+                    <div class="clientarea">
+                        <ul>
+                            @Html.Partial("_LoggedInUser")
+                        </ul>
+                    </div>
                 </div>
-                <!-- End Client Area  -->
             </div>
-        </div>
-    </div>
+        </div>*@
 
     <div class="container d-flex flex-column justify-content-around">
         <h6 class="px-2 py-3 my-4">برترین سامانه ها</h6>
         <div class="row mb-4">
-            <div class="images image0 item-fallow col-lg-4 col-sm-6 col-12 ">
+            <div class="images item-fallow col-lg-4 col-sm-6 col-12">
                 <div class="item position-relative overflow-hidden" data-aos="fade-up">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/11.jpg" alt="img"></div>
@@ -47,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-12 item-fallow image1 images">
+            <div class="images item-fallow col-lg-4 col-sm-6 col-12">
                 <div class="item position-relative overflow-hidden" data-aos="fade-up">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/00.jpg" alt="img"></div>
@@ -62,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-12 item-fallow image2 images">
+            <div class="images item-fallow col-lg-4 col-sm-6 col-12">
                 <div class="item position-relative overflow-hidden" data-aos="fade-up">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/22.jpg" alt="img"></div>
@@ -79,7 +70,7 @@
             </div>
         </div>
         <div class="row mb-4">
-            <div class="images image3 item-fallow col-lg-4 col-sm-6 col-12">
+            <div class="images item-fallow col-lg-4 col-sm-6 col-12">
                 <div class="item position-relative overflow-hidden " data-aos="fade-down">
                     <div class="my-card">
                         <div class="img img-fluid">
@@ -96,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="images image4 item-fallow col-lg-4 col-sm-6 col-12">
+            <div class="images item-fallow col-lg-4 col-sm-6 col-12">
                 <div class="item position-relative overflow-hidden" data-aos="fade-down">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/22.jpg" alt="img"></div>
@@ -111,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="images image5 item-fallow col-lg-4 col-sm-6 col-12">
+            <div class="images item-fallow col-lg-4 col-sm-6 col-12">
                 <div class="item position-relative overflow-hidden" data-aos="fade-down">
                     <div class="my-card">
                         <div class="img img-fluid"><img src="~/Content/images/assets/11.jpg" alt="img"></div>
@@ -127,8 +118,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
 </section>
 <section class="scroll s-two" data-section-name="s-two">
     <div class="container">
@@ -183,6 +174,7 @@
     </div>
 </section>
 
+@* Scroll bullet *@
 <div class="scroll-control">
     <span class="one"></span>
     <span class="two"></span>
@@ -194,7 +186,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="myModalLabel"></h5>
-                <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" id="btn_close_modal" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="myModalBody" class="d-flex">
             </div>
@@ -206,7 +198,7 @@
     </div>
 </div>
 
-@section scripts{    
+@section scripts{
 
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.scrollify.min.js"></script>
@@ -226,13 +218,33 @@
                 myModalLabel.innerHTML = "تست اتصال";
                 myModalBody.innerHTML = result;
             })
+
+            let cc = document.querySelectorAll(".item-fallow");
+            let i = 0
+            cc.forEach(() => {
+                cc[i].classList.remove('images')
+                cc[i].classList.remove(`image${i}`)
+                i++;
+            });
+        })
+        var btn_close_modal = document.getElementById('btn_close_modal');
+        btn_close_modal.addEventListener('click', function () {
+            let cc = document.querySelectorAll(".item-fallow");
+            let i = 0
+            cc.forEach(() => {
+                cc[i].classList.add('images')
+                cc[i].classList.add(`image${i}`)
+                i++;
+            });
         })
     </script>
 
+    @* AOS Script *@
     <script>
         AOS.init();
     </script>
 
+    @* Scroll Script *@
     <script>
         $(document).ready(function () {
             $.scrollify({
@@ -260,7 +272,7 @@
 
     @* Items Moves Script *@
     <script>
-        if (window.innerWidth > 1200 || window.innerWidth > 1500) {
+        if (window.innerWidth < 1200 || window.innerWidth > 1500) {
             let cc = document.querySelectorAll(".item-fallow");
             let i = 0
             cc.forEach(() => {
@@ -408,9 +420,16 @@
                 "--mouse-y5", yy
             );
         }, false);
+
+        // Add Class Name imageI for Special CSS classes
+        const allElem = [...document.querySelectorAll(".images")];
+        for (var i = 0; i < allElem.length; i++) {
+            allElem[i].classList.add(`image${i}`);
+        }
+
     </script>
 
-    @* Each Button Shiny Hover *@
+    @* Each Button Shiny Hover Script *@
     <script>
         const buttons = document.querySelectorAll(".shiny");
         buttons.forEach(button => {

@@ -23,6 +23,21 @@ ul{list-style: none !important; list-style-type: none !important; margin: 0; pad
 .comment-layer ul img,.comment-layer ul li,.comment-layer ul li .reply-button{ border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px;}
 a,span,label,i,p,div{font-weight: normal !important}
 
+.top-menu ul:after, .clientarea ul:after, .logo-layer:after, .mega-menu .container > ul:after,
+.mega-menu .container > ul > li > ul:after, .form-search form:after,
+.right-side-content section article ul li:after, .blog-side ul li:after, .last-products article div > div:after,
+.right-side-content .basket-side article ul li:after, .pagination-layer:after, .archive-news article:after,
+.detail-product > div:after, .basket-style .tbl-head ul:after,
+.basket-style .tbl-body ul:after, .basket-style .tbl-body ul li:first-child:after {
+    display: block;
+    clear: both;
+    content: '';
+    visibility: hidden;
+    height: 0;
+    line-height: 0
+}
+
+
 .MyBody {
     background: rgb(33,27,126);
     background: linear-gradient(22deg, rgba(33,27,126,1) 0%, rgba(26,147,172,1) 53%, rgba(211,255,221,1) 85%);
@@ -65,3 +80,5 @@ a,span,label,i,p,div{font-weight: normal !important}
 .textFont12{
     font-size:12px;
 }
+
+

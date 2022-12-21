@@ -504,11 +504,56 @@ namespace Metro.Controllers
     public class AccountController : Controller
     {
         myMetro_DBEntities db = new myMetro_DBEntities();
+
+        [Route("Login")]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Route("Login")]
+        public ActionResult Login(LoginViewModel login)
+        {
+            if (ModelState.IsValid)
+            {
+                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password, "MD5");
+
+                var user = db.Users.SingleOrDefault(u => u.Email == login.Email && u.Password == hashPassword);
+
+                if (user != null)
+                {
+                    if (user.IsActive==true)
+                    {
+                        FormsAuthentication.SetAuthCookie(user.UserName, login.RememberMe);                       
+                        return Redirect("/");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Email", "حساب کاربری فعال نشده");
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "کاربری با اطلاعات یافت شده پیدا نشد");
+                }
+            }
+            return View(login);
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/");
+        }
+
+        [Route("Register")]
         public ActionResult Register()
         {
             return View();
         }
         [HttpPost]
+        [Route("Register")]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel register)
         {
@@ -521,7 +566,7 @@ namespace Metro.Controllers
                         Email = register.Email.Trim().ToLower(),
                         Password = FormsAuthentication.HashPasswordForStoringInConfigFile(register.Password, "MD5"),
                         ActiveCode = Guid.NewGuid().ToString(),
-                        isActive = false,
+                        IsActive = false,
                         RegisterDate = DateTime.Now,
                         RoleID = 1,
                         UserName = register.UserName
@@ -529,6 +574,10 @@ namespace Metro.Controllers
                     db.Users.Add(user);
                     db.SaveChanges();
                     return View("SuccessRegister",user);
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "ایمیل وارد شده تکراری است");
                 }
             }
             return View(register);
